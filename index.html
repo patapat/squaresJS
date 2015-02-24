@@ -22,7 +22,9 @@
         canvasEl.width = Squares.Game.DIM_X;
         canvasEl.height = Squares.Game.DIM_Y;
         var ctx = canvasEl.getContext("2d");
-        var game = new Squares.Game();
+        var game = new Squares.Game(ctx);
+        var score = 0;
+        ctx.fillText("Score:" + score, 150, 150);
         new Squares.GameView(game, ctx).start();
       })();
     </script>
