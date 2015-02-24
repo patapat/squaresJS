@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Squares</title>
+  </head>
+
+  <body>
+    <canvas style="cursor:none"></canvas>
+
+    <!-- <script type="application/javascript" src="vendor/keymaster.js"></script> -->
+
+    <script type="application/javascript" src="lib/util.js"></script>
+    <script type="application/javascript" src="lib/movingSquare.js"></script>
+    <script type="application/javascript" src="lib/squares.js"></script>
+    <script type="application/javascript" src="lib/cursorSquare.js"></script>
+    <script type="application/javascript" src="lib/game.js"></script>
+    <script type="application/javascript" src="lib/gameView.js"></script>
+
+
+    <script type="application/javascript">
+      (function () {
+        var canvasEl = document.getElementsByTagName("canvas")[0];
+        canvasEl.width = Squares.Game.DIM_X;
+        canvasEl.height = Squares.Game.DIM_Y;
+        var ctx = canvasEl.getContext("2d");
+        var game = new Squares.Game();
+        new Squares.GameView(game, ctx).start();
+      })();
+    </script>
+  </body>
+</html>
