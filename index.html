@@ -1,30 +1,41 @@
 <html>
   <head>
     <title>Squares</title>
+    <script type="text/paperscript" canvas="myCanvas">
+    	// Create a Paper.js Path to draw a line into it:
+    	// var path = new Path();
+    	// Give the stroke a color
+    	// path.strokeColor = 'black';
+    	// var start = new Point(100, 100);
+    	// Move to start and draw a line from there
+    	// path.moveTo(start);
+    	// Note the plus operator on Point objects.
+    	// PaperScript does that for us, and much more!
+    	// path.lineTo(start + [ 100, -100 ]);
+    </script>
   </head>
 
   <body>
-    <canvas style="cursor:none"></canvas>
+    <canvas id="myCanvas" style="cursor:none"></canvas>
 
     <!-- <script type="application/javascript" src="vendor/keymaster.js"></script> -->
-
+    <script type="text/javascript" src="lib/paper.js"></script>
     <script type="application/javascript" src="lib/util.js"></script>
     <script type="application/javascript" src="lib/movingSquare.js"></script>
     <script type="application/javascript" src="lib/squares.js"></script>
+    <script type="application/javascript" src="lib/circles.js"></script>
     <script type="application/javascript" src="lib/cursorSquare.js"></script>
     <script type="application/javascript" src="lib/game.js"></script>
     <script type="application/javascript" src="lib/gameView.js"></script>
 
-
     <script type="application/javascript">
       (function () {
-        var canvasEl = document.getElementsByTagName("canvas")[0];
+        var canvasEl = document.getElementById("myCanvas");
         canvasEl.width = Squares.Game.DIM_X;
         canvasEl.height = Squares.Game.DIM_Y;
         var ctx = canvasEl.getContext("2d");
         var game = new Squares.Game(ctx);
-        var score = 0;
-        ctx.fillText("Score:" + score, 150, 150);
+
         new Squares.GameView(game, ctx).start();
       })();
     </script>
