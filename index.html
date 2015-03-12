@@ -1,12 +1,11 @@
 <html>
   <head>
     <title>Squares</title>
+    <link rel="stylesheet" type="text/css" href="lib/application.css">
   </head>
 
   <body>
     <canvas id="myCanvas"></canvas>
-
-    <!-- <script type="application/javascript" src="vendor/keymaster.js"></script> -->
     <script type="text/javascript" src="lib/paper.js"></script>
     <script type="application/javascript" src="lib/jquery-2.1.3.min.js"></script>
     <script type="application/javascript" src="lib/util.js"></script>
@@ -17,7 +16,6 @@
     <script type="application/javascript" src="lib/cursorSquare.js"></script>
     <script type="application/javascript" src="lib/game.js"></script>
     <script type="application/javascript" src="lib/gameView.js"></script>
-
 
     <script type="application/javascript">
       (function () {
@@ -30,13 +28,27 @@
         var elemLeft = canvasEl.offsetLeft;
         var elemTop = canvasEl.offsetTop;
         var elements = [];
+        // Squares.Game.SQUARE_OPACITY = 0.2;
+        // var game = new Squares.Game(ctx);
+        // var newGameView = new Squares.GameView(game, ctx);
+        // newGameView.renderHomeScreen();
+        // canvasEl.removeEventListener('mousemove', fakeGame.detectMouse);
+        // var homeScreenTimer = setInterval( function( ) {
+        //   fakeGame.homeScreenStep();
+        //   fakeGame.draw(ctx, true);
+        //   fakeGame.remove
+        // renderPlayButton("black", elements[0])
+        // }, 1000 / Squares.Game.FPS);
+
 
         function startGame() {
-          $('#myCanvas').css("cursor", "none");
+          canvasEl.style.cursor = "none";
           var game = new Squares.Game(ctx);
           new Squares.GameView(game, ctx).start();
+
           canvasEl.removeEventListener('click', buttonInteraction);
           canvasEl.removeEventListener('mousemove', buttonInteraction);
+          // clearInterval(homeScreenTimer);
         }
 
         function renderPlayButton(color, element) {
@@ -51,7 +63,6 @@
           var x = event.pageX - elemLeft;
           var y = event.pageY - elemTop;
 
-
           elements.forEach(function (element) {
             if (y > element.top && y < element.top + element.height
                 && x > element.left && x < element.left + element.width) {
@@ -64,7 +75,7 @@
                   }
             } else {
               if (ctx.fillStyle === "#ff0000") {
-                renderPlayButton("grey", element);
+                // renderPlayButton("grey", element);
                 renderPlayButton("black", element);
               }
             }
