@@ -16,6 +16,7 @@
     <script type="application/javascript" src="lib/powerDown.js"></script>
     <script type="application/javascript" src="lib/cursorSquare.js"></script>
     <script type="application/javascript" src="lib/game.js"></script>
+    <script type="application/javascript" src="lib/homescreen.js"></script>
     <script type="application/javascript" src="lib/gameView.js"></script>
 
     <script type="application/javascript">
@@ -30,18 +31,23 @@
         var elemTop = canvasEl.offsetTop;
         var elements = [];
         // Squares.Game.SQUARE_OPACITY = 0.2;
+        // var homescreen = new Squares.Homescreen(ctx);
+        // var fakeGameView = new Squares.GameView(homescreen, ctx);
+        // fakeGameView.renderHomeScreen();
         var game = new Squares.Game(ctx);
         var newGameView = new Squares.GameView(game, ctx);
-        newGameView.gameOver();
-        // newGameView.renderHomeScreen();
         // canvasEl.removeEventListener('mousemove', fakeGame.detectMouse);
+        // homescreen.sterilize();
         // var homeScreenTimer = setInterval( function( ) {
-        //   fakeGame.homeScreenStep();
-        //   fakeGame.draw(ctx, true);
-        //   fakeGame.remove
-        // renderPlayButton("black", elements[0])
+        //   homescreen.step();
+        //   homescreen.draw(ctx, true);
+        //
+        //   // fakeGame.remove
+        //   // newGameView.gameOver();
+        //   // renderPlayButton("black", elements[0])
         // }, 1000 / Squares.Game.FPS);
 
+        newGameView.gameOver();
       })();
     </script>
   </body>
